@@ -8,6 +8,14 @@ class Bank {
         this.balance += amount; //same as saying balance = balance + amount
         this.transactions.push({date, credit: amount, balance: this.balance});
     }
+
+    withdraw(amount, date) {
+        this.balance -= amount; //same as saying balance = balance - amount
+        this.transactions.push({date, debit: amount, balance: this.balance});
+    }
+
+
+
 };
 
 module.exports = Bank;
