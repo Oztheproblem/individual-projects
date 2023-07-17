@@ -11,11 +11,9 @@ class Bank {
 
     withdraw(amount, date) {
         if (this.balance >= amount) {
-        this.balance -= amount; //same as saying balance = balance - amount
-        this.transactions.push({date, debit: amount, balance: this.balance});
-        } else { 
-        throw new Error('Insufficient funds');
-      }
+          this.balance -= amount; //same as saying balance = balance - amount
+          this.transactions.push({date, debit: amount, balance: this.balance});
+        } else {throw new Error('Insufficient funds');}
     }
 
     // struglling to code for printStatement.Will write pseudo to help
@@ -24,8 +22,12 @@ class Bank {
     // needs to have 2 decimals to print correctly 
     
     printStatement() {
-            let statement = 'date || credit || debit || balance';        
-            return statement;
+        let statement = 'date || credit || debit || balance'; 
+
+        for (const transaction of this.transactions.reverse()) {
+            const { date, credit, debit, balance } = transaction;
+            statement += `\n${date} || ${credit ? credit.toFixed(2) : ''} || ${debit ? debit.toFixed(2) : ''} || ${balance.toFixed(2)}`;}        
+        return statement;
     }
 };
 
