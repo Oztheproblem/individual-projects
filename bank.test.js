@@ -25,4 +25,19 @@ describe('Bank', () => {
       });
       
 
+    it('should print the balance', () => {
+        bank.deposit(1000, '18-07-2023');
+        bank.deposit(1000, '18-07-2023');
+        bank.withdraw(1000, '18-07-2023');
+    // PSEUDO to help me finish writting the test
+    // expect printStatement() =
+    // date || credit || debit || balance
+    // 18/07/2023 || || 1000.00 || 2000.00
+    // 17/07/2023 || 1000.00 || || 2000.00
+    // 17/07/2023 || 1000.00 || || 1000.00`
+
+
+
+
+        
 });
