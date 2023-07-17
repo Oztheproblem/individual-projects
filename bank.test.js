@@ -35,9 +35,8 @@ describe('Bank', () => {
     // 18/07/2023 || || 1000.00 || 2000.00
     // 17/07/2023 || 1000.00 || || 2000.00
     // 17/07/2023 || 1000.00 || || 1000.00`
-
-
-
+    expect(bank.printStatement()).toContain('date || credit || debit || balance');
+    });
 
         
 });

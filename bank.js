@@ -17,6 +17,16 @@ class Bank {
         throw new Error('Insufficient funds');
       }
     }
+
+    // struglling to code for printStatement.Will write pseudo to help
+    // printStatement() = 'date || credit || debit || balance';
+    // transactions.reverse() is used to reverse the order of the transactions. Then printed on each line
+    // needs to have 2 decimals to print correctly 
+    
+    printStatement() {
+            let statement = 'date || credit || debit || balance';        
+            return statement;
+    }
 };
 
 module.exports = Bank;
