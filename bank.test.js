@@ -19,4 +19,10 @@ describe('Bank', () => {
         expect(bank.balance).toBe(500);
     })
 
+    it('should throw an error when trying to withdraw more than the balance', () => {
+        bank.deposit(1000, '18-07-2023');
+        expect(() => bank.withdraw(1500, '19-07-2023')).toThrow('Insufficient funds');
+      });
+      
+
 });

@@ -10,12 +10,13 @@ class Bank {
     }
 
     withdraw(amount, date) {
+        if (this.balance >= amount) {
         this.balance -= amount; //same as saying balance = balance - amount
         this.transactions.push({date, debit: amount, balance: this.balance});
+        } else { 
+        throw new Error('Insufficient funds');
+      }
     }
-
-
-
 };
 
 module.exports = Bank;
