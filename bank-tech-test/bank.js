@@ -22,13 +22,21 @@ class Bank {
     // needs to have 2 decimals to print correctly 
     
     printStatement() {
-        let statement = 'date || credit || debit || balance'; 
-
+        let statement = 'date || credit || debit || balance';
+    
         for (const transaction of this.transactions.reverse()) {
             const { date, credit, debit, balance } = transaction;
-            statement += `\n${date} || ${credit ? credit.toFixed(2) : ''} || ${debit ? debit.toFixed(2) : ''} || ${balance.toFixed(2)}`;}        
-        return statement;
+            // Get the date part in 'dd/mm/yyyy' format
+            const formattedDate = date.toLocaleDateString('en-GB');
+            statement += `\n${formattedDate} || ${credit ? credit.toFixed(2) : ''} || ${debit ? debit.toFixed(2) : ''} || ${balance.toFixed(2)}`;
+        }
+    
+        return statement.split('\\n').join('\n');
     }
+    
+    
+    
+      
 };
 
 module.exports = Bank;

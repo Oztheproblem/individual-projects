@@ -28,7 +28,19 @@ describe('Bank integration test', () => {
         app.bank.deposit(1000);
         app.bank.withdraw(1000);
 
-
+        const expectedStatement = 
+        `date || credit || debit || balance 
+        18/07/2023 || || 1000.00 || 1000.00
+        18/07/2023 || 1000.00 || || 2000.00
+        18/07/2023 || 1000.00 || || 1000.00`;
+      
+        const receivedStatement = app.bank.printStatement();
+      
+        // removes all whitespace from the string in order for the tests to pass
+        const normalizedExpected = expectedStatement.replace(/\s+/g, ' ').trim();
+        const normalizedReceived = receivedStatement.replace(/\s+/g, ' ').trim();
+      
+        expect(normalizedReceived).toEqual(normalizedExpected);    
 
     });    
 });

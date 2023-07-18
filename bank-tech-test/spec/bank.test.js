@@ -9,26 +9,26 @@ describe('Bank', () => {
     });
 
     it('should deposit money and update balance', () => {
-        bank.deposit(1000, '18/07/2023');
+        bank.deposit(1000);
         expect(bank.balance).toBe(1000);
     });
 
     it('should withdraw money and update balance', () => {
-        bank.deposit(1000, '18/07/2023');
-        bank.withdraw(500, '19/07/2023');
+        bank.deposit(1000);
+        bank.withdraw(500);
         expect(bank.balance).toBe(500);
     })
 
     it('should throw an error when trying to withdraw more than the balance', () => {
-        bank.deposit(1000, '18/07/2023');
-        expect(() => bank.withdraw(1500, '19/07/2023')).toThrow('Insufficient funds');
+        bank.deposit(1000);
+        expect(() => bank.withdraw(1500)).toThrow('Insufficient funds');
     });
       
 
     it('should print the balance in reverse chronological order ', () => {
-        bank.deposit(1000, '16/07/2023');
-        bank.deposit(1000, '17/07/2023');
-        bank.withdraw(1000, '18/07/2023');
+        bank.deposit(1000);
+        bank.deposit(1000);
+        bank.withdraw(1000);
     // PSEUDO to help me finish writting the test
     // expect printStatement() =
     // date || credit || debit || balance
@@ -41,8 +41,8 @@ describe('Bank', () => {
       const expectedStatement = 
       `date || credit || debit || balance 
       18/07/2023 || || 1000.00 || 1000.00
-      17/07/2023 || 1000.00 || || 2000.00
-      16/07/2023 || 1000.00 || || 1000.00`;
+      18/07/2023 || 1000.00 || || 2000.00
+      18/07/2023 || 1000.00 || || 1000.00`;
     
       const receivedStatement = bank.printStatement();
     
