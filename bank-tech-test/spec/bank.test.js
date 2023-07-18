@@ -1,4 +1,4 @@
-const Bank = require('./bank');
+const Bank = require('../bank');
 
 describe('Bank', () => {
     let bank;
@@ -8,12 +8,12 @@ describe('Bank', () => {
         bank = new Bank();
     });
 
-    it('should deposit money', () => {
+    it('should deposit money and update balance', () => {
         bank.deposit(1000, '18/07/2023');
         expect(bank.balance).toBe(1000);
     });
 
-    it('should withdraw money', () => {
+    it('should withdraw money and update balance', () => {
         bank.deposit(1000, '18/07/2023');
         bank.withdraw(500, '19/07/2023');
         expect(bank.balance).toBe(500);
@@ -25,7 +25,7 @@ describe('Bank', () => {
     });
       
 
-    it('should print the balance', () => {
+    it('should print the balance in reverse chronological order ', () => {
         bank.deposit(1000, '16/07/2023');
         bank.deposit(1000, '17/07/2023');
         bank.withdraw(1000, '18/07/2023');
