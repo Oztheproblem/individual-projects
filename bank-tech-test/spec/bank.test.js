@@ -38,11 +38,11 @@ describe('Bank', () => {
     // expect(bank.printStatement()).toContain('date || credit || debit || balance');
     // });
       
-      const expectedStatement = 
-      `date || credit || debit || balance 
-      18/07/2023 || || 1000.00 || 1000.00
-      18/07/2023 || 1000.00 || || 2000.00
-      18/07/2023 || 1000.00 || || 1000.00`;
+    const expectedStatement = `
+    date || credit || debit || balance 
+    ${new Date().toLocaleDateString('en-GB')} || || 1000.00 || 1000.00
+    ${new Date().toLocaleDateString('en-GB')} || 1000.00 || || 2000.00
+    ${new Date().toLocaleDateString('en-GB')} || 1000.00 || || 1000.00`;
     
       const receivedStatement = bank.printStatement();
     

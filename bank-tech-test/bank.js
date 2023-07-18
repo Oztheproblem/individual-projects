@@ -33,9 +33,6 @@ class Bank {
     
         return statement.split('\\n').join('\n');
     }
-    
-    
-    
       
 };
 

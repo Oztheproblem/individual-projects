@@ -30,9 +30,9 @@ describe('Bank integration test', () => {
 
         const expectedStatement = 
         `date || credit || debit || balance 
-        18/07/2023 || || 1000.00 || 1000.00
-        18/07/2023 || 1000.00 || || 2000.00
-        18/07/2023 || 1000.00 || || 1000.00`;
+        19/07/2023 || || 1000.00 || 1000.00
+        19/07/2023 || 1000.00 || || 2000.00
+        19/07/2023 || 1000.00 || || 1000.00`;
       
         const receivedStatement = app.bank.printStatement();
       
