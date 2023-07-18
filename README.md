@@ -4,7 +4,7 @@
 
 I'll be working on a tech test called the "Bank Test Challenge". This practice session is about demonstrating my Object-Oriented (OO) design and Test-Driven Development (TDD) skills.
 
-The challenge requires me to implement a simple banking system that allows interactions via a REPL like [NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) . The functionalities I need to implement are deposits, withdrawals, and printing of the account statement, including date, amount, and balance.
+The challenge requires me to implement a simple banking system that allows interactions via a REPL like ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) . The functionalities I need to implement are deposits, withdrawals, and printing of the account statement, including date, amount, and balance.
 
 Data storage for this challenge can be kept in memory, so I won't need to use a database.
 
