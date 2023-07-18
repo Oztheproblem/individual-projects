@@ -16,5 +16,11 @@ describe('Bank integration test', () => {
         app.bank.deposit(1000);
         expect(app.bank.balance).toBe(1000);
     });
+
+    it('should withdraw correctly and update the balance', () => {
+        app.bank.deposit(1000);  
+        app.bank.withdraw(500);
+        expect(app.bank.balance).toBe(500);
+    });
     
 });
