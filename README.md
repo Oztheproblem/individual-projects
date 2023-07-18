@@ -45,7 +45,7 @@ To run the code and test the bank functionality, follow these steps:
 `$ npm install`
 
 5. Run the tests using the following command:
-`$ npm run test`
+`$ npm run test:watchAll`
 
 The test cases will be executed, and you should see the output showing if the code passes the acceptance criteria.
 
