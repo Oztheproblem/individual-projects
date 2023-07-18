@@ -38,10 +38,10 @@ To run the code and test the bank functionality, follow these steps:
 2. Navigate to the project directory.
 3. Open a terminal or command prompt.
 4. Run the following command to install the dependencies:
-npm install
+$ npm install
 
 5. Run the tests using the following command:
-npm test
+$ npm test
 
 The test cases will be executed, and you should see the output showing if the code passes the acceptance criteria.
 
