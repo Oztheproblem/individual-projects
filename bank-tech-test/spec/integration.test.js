@@ -12,6 +12,5 @@ describe('Bank', () => {
         app.deposit(1000);
         expect(app.bank.balance).toBe(1000);
     });
-
-
+    
 });
