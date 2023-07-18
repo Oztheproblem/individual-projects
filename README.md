@@ -31,6 +31,10 @@ For this challenge, I'll be using ![JavaScript](https://img.shields.io/badge/jav
 
 
 ## Running the Code
+1. cd into bank-test directory and run node
+2. load app.js
+3. follow the steps below
+![Alt text](image-1.png)
 
 To run the code and test the bank functionality, follow these steps:
 

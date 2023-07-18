@@ -18,6 +18,7 @@ class App {
         const date = new Date(); // Use Date object, not a string
         this.bank.withdraw(amount, date);
         console.log(`Withdrew ${amount} on ${date.toLocaleDateString('en-gb')}`);
+        
     }
 
     printStatement() {
