@@ -23,4 +23,12 @@ describe('Bank integration test', () => {
         expect(app.bank.balance).toBe(500);
     });
     
+    it('should print the balance in reverse chronological order ', () => {
+        app.bank.deposit(1000);
+        app.bank.deposit(1000);
+        app.bank.withdraw(1000);
+
+
+
+    });    
 });
