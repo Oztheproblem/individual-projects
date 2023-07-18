@@ -1,10 +1,18 @@
 const Bank = require('./bank');
 
-// create an instance of the Bank class
-const bank = new Bank();
+class App {
+    constructor () {
+    this.bank = new Bank();
+    }
 
-deposit(amount, date)
-// withdraw(amount, date)
-// printSatement()
+    deposit(amount) {
+    // Get the current date in the format 'dd/mm/yyyy'
+    const date = new Date().toLocaleDateString();
+    // Call the deposit method of the Bank class and pass the amount and date
+    bank.deposit(amount, date);
+    // Print a message to confirm the deposit
+    console.log(`Deposited ${amount} on ${date}`);
+    }
 
-module.exports = {deposit, withdraw, printStatement};
+    }
+module.exports = App;

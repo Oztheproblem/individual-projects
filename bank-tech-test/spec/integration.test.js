@@ -1,15 +1,19 @@
 const app = require('../app');
+const Bank = require('../bank');
 
 
-describe('Bank', () => {
-    //beforeEach rests bank for each test
+describe('Bank integration test', () => {
+    let bank; // Declare a variable to hold the bank object
+
     beforeEach(() => {
-        app.bank.transactions = [];
-        app.bank.balance = 0;
+      // Create a new Bank instance before each test
+      app.bank = new Bank();
+      app.bank.transactions = [];
+      app.bank.balance = 0;
     });
     
-    it('should deposit correctly', () => {  
-        app.deposit(1000);
+    it('should deposit correctly and update the balance', () => {  
+        app.bank.deposit(1000);
         expect(app.bank.balance).toBe(1000);
     });
     
