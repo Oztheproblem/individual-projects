@@ -12,6 +12,11 @@ describe('Bank integration test', () => {
       app.bank.balance = 0;
     });
     
+    it('should have a balance of 0', () => {
+        app.bank.balance = 0;
+        expect(app.bank.balance).toBe(0);
+    });
+
     it('should deposit correctly and update the balance', () => {  
         app.bank.deposit(1000);
         expect(app.bank.balance).toBe(1000);
