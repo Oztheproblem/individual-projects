@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { taxRate, jsonData, calculateOrderTotal } from './receipt';
+import { taxRate, jsonData, calculateOrderTotal, calculateTax } from './receipt';
 
 
 
@@ -25,7 +25,10 @@ describe('receipts', () => {
 
     it('should calculate the correct tax rate', () => {
         const testOrder = calculateOrderTotal(order);
-        const taxAmount = testOrder * 0.0864;
+        const taxAmount = calculateTax(testOrder);
+        // could probably complicate this test but not sure how to test it
         expect(taxAmount).toEqual(testOrder * taxRate);
     });
+
+
 });

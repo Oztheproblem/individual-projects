@@ -1,4 +1,6 @@
 import React from'react';
+
+
 //export const so it can be accessed on App.js amd 
 export const taxRate = 0.0864;
 
@@ -41,4 +43,9 @@ export const calculateOrderTotal = (order) => {
         
      });
     return total;
+    };
+
+
+export const calculateTax = (orderedItems) => {
+    return orderedItems * taxRate;
 };
