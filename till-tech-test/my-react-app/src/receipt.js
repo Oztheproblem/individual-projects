@@ -49,3 +49,7 @@ export const calculateOrderTotal = (order) => {
 export const calculateTax = (orderedItems) => {
     return orderedItems * taxRate;
 };
+
+export const printReceipt = (customerInfo, order) => {
+    return customerInfo;
+};

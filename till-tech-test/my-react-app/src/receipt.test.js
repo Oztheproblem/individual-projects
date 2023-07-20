@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { taxRate, jsonData, calculateOrderTotal, calculateTax } from './receipt';
+import { taxRate, jsonData, calculateOrderTotal, calculateTax, printReceipt } from './receipt';
 
 
 
@@ -28,6 +28,14 @@ describe('receipts', () => {
         const taxAmount = calculateTax(testOrder);
         // could probably complicate this test but not sure how to test it
         expect(taxAmount).toEqual(testOrder * taxRate);
+    });
+
+    it('should contain the correct info on the reciept', () => {
+        const customerInfo = 'Jane';
+        const receiptInfo = printReceipt(customerInfo, order);
+
+        expect(receiptInfo).toContain('Jane');
+
     });
 
 
