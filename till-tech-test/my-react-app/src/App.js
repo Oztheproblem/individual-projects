@@ -20,7 +20,7 @@ function App() {
   const handleQuantityChange = (productName, quantity) => {
     setProducts(prevProducts =>
       prevProducts.map(product =>
-        product.name === productName ? { ...product, count: quantity } : product
+        product.name === productName ? { ...product, quantity: quantity } : product
       )
     );
   };
@@ -32,6 +32,14 @@ function App() {
       )
     );
   };
+  
+  const handleAddToCart = (productName) => {
+    const productToAdd = {
+      name: productName,
+      quantity: 1,
+    };
+    setProducts(prevProducts => [...prevProducts, productToAdd]);
+  };
 
   const calculateTotalPrice = () => {
     return calculateOrderTotal(products);
@@ -40,8 +48,15 @@ function App() {
   const handlePrintReceipt = () => {
     const total = calculateTotalPrice();
     const tax = calculateTax(total);
-    const receipt = printReceipt(jsonData[0].shopName, products, total, tax);
+    const receipt = printReceipt('John Doe', products, total, tax); // Replace 'John Doe' with the actual customer name
     console.log(receipt); // For demonstration, you can modify this to print the receipt in a more user-friendly way.
+  
+    // Open the receipt in a new window
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write('<html><head><title>Receipt</title></head><body>');
+    newWindow.document.write(`<pre>${receipt}</pre>`);
+    newWindow.document.write('</body></html>');
+    newWindow.document.close();
   };
 
   return (
@@ -50,11 +65,7 @@ function App() {
         <h1>Hipster Coffee Shop</h1>
         <img src={hipsterLogo} className="App-logo" alt="logo" />
         <p>I have a beard and I have feelings</p>
-
-        <button className="btn" onClick={handleOpenMenu}>
-          <h2>Open Menu</h2>
-        </button>
-
+    
         {/* Pass necessary props to the Menu component */}
         <Menu
           visibility={isMenuVisible}
@@ -62,7 +73,13 @@ function App() {
           onProductRemove={handleProductRemove}
           onClose={handleCloseMenu}
           onQuantityChange={handleQuantityChange}
+          onAddToCart={handleAddToCart} // Pass the new prop for adding items to the cart
         />
+        <button className="btn" onClick={handleOpenMenu}>
+          <h2>Open Menu</h2>
+        </button>
+
+
 
         <div>
           {products.length > 0 && (
@@ -71,7 +88,7 @@ function App() {
               <ul>
                 {products.map((product) => (
                   <li key={product.name}>
-                    {product.name} - Quantity: {product.count}
+                    {product.name} - Quantity: {product.quantity}
                   </li>
                 ))}
               </ul>

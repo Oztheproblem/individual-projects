@@ -31,20 +31,20 @@ export const jsonData = [ {
   ];
 
 
-export const calculateOrderTotal = (order) => {
-    const { prices } = jsonData[0];
-    // console.log(prices); to check if it correctly displays prices array 
-        let total = 0;
-        order.forEach(item => {
-        //console.log(item.product); to check it accesed prices array - should print Caffe Latte
-        if (item.product in prices[0]) {
-            total += prices[0][item.product] * item.quantity;
-        }
-        
-     });
-    return total;
-    };
 
+  export const calculateOrderTotal = (order) => {
+    const { prices } = jsonData[0];
+    let total = 0;
+    order.forEach(item => {
+      if (item.name in prices[0]) {
+        total += prices[0][item.name] * item.quantity;
+      }
+    });
+    return total;
+  };
+  
+  // ...
+  
 
 export const calculateTax = (orderedItems) => {
     return orderedItems * taxRate;

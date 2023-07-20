@@ -9,6 +9,7 @@ function Menu({
   onProductRemove,
   onClose,
   onQuantityChange,
+  onAddToCart, // Add the new prop for selecting an item
 }) {
   const coffeeMenu = jsonData[0].prices[0];
 
@@ -35,16 +36,19 @@ function Menu({
                 <h3>{itemName}</h3>
                 <div className='product-price'>
                   <span>${(itemPrice * (1 + 0.0864)).toFixed(2)}</span>
-                  {product && (
+                  {product ? (
                     <div className='product-controls'>
                       <input
                         type='number'
                         min={0}
-                        value={product.count}
+                        value={product.quantity}
                         onChange={(e) => onQuantityChange(itemName, parseInt(e.target.value))}
                       />
                       <button onClick={() => onProductRemove(itemName)}>Remove</button>
                     </div>
+                  ) : (
+                    // Show the "Add to Cart" button for items not in the cart
+                    <button onClick={() => onAddToCart(itemName)}>Add to Cart</button>
                   )}
                 </div>
               </div>
