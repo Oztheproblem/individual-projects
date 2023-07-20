@@ -1,5 +1,5 @@
 import React from'react';
-
+//export const so it can be accessed on App.js amd 
 export const taxRate = 0.0864;
 
 export const jsonData = [ {
@@ -28,11 +28,17 @@ export const jsonData = [ {
   }
   ];
 
-export const Receipts = () => (
-     const orderTotal = (order) => {
+
+export const calculateOrderTotal = (order) => {
+    const { prices } = jsonData[0];
+    // console.log(prices); to check if it correctly displays prices array 
         let total = 0;
-        for (const item of order) {
-            total += (item.quantity * item.price);
+        order.forEach(item => {
+        //console.log(item.product); to check it accesed prices array - should print Caffe Latte
+        if (item.product in prices[0]) {
+            total += prices[0][item.product] * item.quantity;
         }
-        return total
-     };
+        
+     });
+    return total;
+};

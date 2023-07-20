@@ -1,12 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { taxRate, jsonData } from './receipt';
+import { taxRate, jsonData, calculateOrderTotal } from './receipt';
 
 
 
-const order = [
-    { product: 'Cafe Latte', quantity: 2 },
-];
 
 //simple test to expect that the tax rate is identical to 0.0864
 describe('receipts', () => {
@@ -15,13 +12,10 @@ describe('receipts', () => {
     });
 
     it('should calculate the corrct order total price', () => {
-        const testOrder = orderTotal(order);
-        expect(orderTotal).toEqual(4.75*2);
+        // create a mock order
+        const order = [ { product: 'Cafe Latte', quantity: 2 },];
+
+        const testOrder = calculateOrderTotal(order);
+        expect(testOrder).toEqual(4.75 * 2);
     });
-
-    // it('should have the correct price when tax is applied', () => {
-    //     expect
-
-
-
 });
