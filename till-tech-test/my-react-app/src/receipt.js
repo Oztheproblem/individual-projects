@@ -51,5 +51,20 @@ export const calculateTax = (orderedItems) => {
 };
 
 export const printReceipt = (customerInfo, order) => {
-    return customerInfo;
+    const orderTotal = calculateOrderTotal(order);
+    const taxAmount = calculateTax(orderTotal);
+    
+    const receiptInfo = `
+        Shop Name: ${jsonData[0].shopName}
+        Address: ${jsonData[0].address}
+        Phone: ${jsonData[0].phone}
+        Customer: ${customerInfo}
+        Order Total: $${orderTotal.toFixed(2)}
+        Tax Amount: $${taxAmount.toFixed(2)}
+        Grand Total: $${(orderTotal + taxAmount).toFixed(2)}
+    `;
+
+    return receiptInfo;
 };
+
+

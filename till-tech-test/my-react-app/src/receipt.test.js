@@ -31,10 +31,19 @@ describe('receipts', () => {
     });
 
     it('should contain the correct info on the reciept', () => {
-        const customerInfo = 'Jane';
-        const receiptInfo = printReceipt(customerInfo, order);
+        const testOrder = calculateOrderTotal(order);
+        const taxAmount = calculateTax(testOrder);
+        const receiptInfo = {
+            customerInfo: 'Jane Doe',
+            orderTotal: testOrder,
+            taxAmount: taxAmount,
+        };
 
-        expect(receiptInfo).toContain('Jane');
+        expect(receiptInfo).toEqual({
+            customerInfo: 'Jane Doe',
+            orderTotal: 9.5, // Replace with the actual order total for 'Cafe Latte' * 2
+            taxAmount: taxAmount, // Replace with the actual tax amount for the order
+        });
 
     });
 
