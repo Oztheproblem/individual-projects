@@ -33,6 +33,8 @@ describe('receipts', () => {
     it('should contain the correct info on the reciept', () => {
         const testOrder = calculateOrderTotal(order);
         const taxAmount = calculateTax(testOrder);
+
+        //mock a transaction
         const receiptInfo = {
             customerInfo: 'Jane Doe',
             orderTotal: testOrder,
@@ -41,7 +43,7 @@ describe('receipts', () => {
 
         expect(receiptInfo).toEqual({
             customerInfo: 'Jane Doe',
-            orderTotal: 9.5, // Replace with the actual order total for 'Cafe Latte' * 2
+            orderTotal: 9.5,
             taxAmount: taxAmount, // Replace with the actual tax amount for the order
         });
 

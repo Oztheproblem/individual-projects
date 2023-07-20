@@ -1,7 +1,9 @@
+/* Apply center alignment to the entire app */
 .App {
   text-align: center;
 }
 
+/* Logo styles */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,8 +15,9 @@
   }
 }
 
+/* Header styles */
 .App-header {
-  background-color: #282c34;
+  background-color: #f5222d; /* Trendy red color */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,10 +27,12 @@
   color: white;
 }
 
+/* Link styles */
 .App-link {
-  color: #61dafb;
+  color: #1890ff; /* Blue color */
 }
 
+/* Logo spin animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
