@@ -42,9 +42,7 @@ export const jsonData = [ {
     });
     return total;
   };
-  
-  // ...
-  
+ 
 
 export const calculateTax = (orderedItems) => {
     return orderedItems * taxRate;
