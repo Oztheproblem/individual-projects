@@ -14,12 +14,12 @@
 /* Customize the modal content */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: #f5222d; /* Trendy red color */
+  background-color: #f5222d;
   padding: 1rem;
   border-radius: 5px 5px 0 0;
-  width: 100%;
+  width: 80%; /* Adjust the width for smaller screens */
 }
 
 .header h2 {
@@ -39,12 +39,12 @@
 
 .cart-products {
   background-color: #fff;
-  width: 25%;
+  width: 80%; /* Adjust the width for smaller screens */
   max-height: 400px;
   overflow-y: auto;
   border-radius: 0 0 5px 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem; 
+  padding: 1rem;
 }
 
 .empty-text {
@@ -136,4 +136,44 @@
 
 .print-button button:hover {
   background-color: #ff4d4f; /* Darker red on hover */
+}
+
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .header {
+    width: 90%; /* Adjust the width for smaller screens */
+  }
+
+  .cart-products {
+    width: 90%; /* Adjust the width for smaller screens */
+  }
+
+  .header h2 {
+    font-size: 1.6rem; /* Reduce font size for smaller screens */
+  }
+
+  .product-info h3 {
+    font-size: 1.3rem; /* Reduce font size for smaller screens */
+  }
+
+  .product-price span {
+    font-size: 1.1rem; /* Reduce font size for smaller screens */
+  }
+
+  .product-controls input {
+    width: 40px; /* Reduce input width for smaller screens */
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  .product-controls button {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  .total-price p {
+    font-size: 1.3rem; /* Reduce font size for smaller screens */
+  }
+
+  .print-button button {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
 }

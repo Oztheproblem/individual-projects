@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { calculateOrderTotal, calculateTax, printReceipt, jsonData } from './receipt';
+import { calculateOrderTotal, calculateTax, printReceipt } from './receipt';
 import hipsterLogo from './hipster.png';
 import Menu from './menu';
 
 function App() {
   const [isMenuVisible, setMenuVisibility] = useState(false);
   const [products, setProducts] = useState([]);
+  const [customerName, setCustomerName] = useState('');
 
   const handleOpenMenu = () => {
     setMenuVisibility(true);
+    const name = prompt('Please enter your name'); //this tells the user to enter their name
+    setCustomerName(name); //save the customer name to the state variable
   };
 
   const handleCloseMenu = () => {
@@ -32,7 +34,7 @@ function App() {
       )
     );
   };
-  
+
   const handleAddToCart = (productName) => {
     const productToAdd = {
       name: productName,
@@ -48,9 +50,9 @@ function App() {
   const handlePrintReceipt = () => {
     const total = calculateTotalPrice();
     const tax = calculateTax(total);
-    const receipt = printReceipt('John Doe', products, total, tax); // Replace 'John Doe' with the actual customer name
+    const receipt = printReceipt(customerName, products, total, tax); // Replace 'John Doe' with the actual customer name
     console.log(receipt); // For demonstration, you can modify this to print the receipt in a more user-friendly way.
-  
+
     // Open the receipt in a new window
     const newWindow = window.open('', '_blank');
     newWindow.document.write('<html><head><title>Receipt</title></head><body>');
@@ -65,7 +67,7 @@ function App() {
         <h1>Hipster Coffee Shop</h1>
         <img src={hipsterLogo} className="App-logo" alt="logo" />
         <p>I have a beard and I have feelings</p>
-    
+
         {/* Pass necessary props to the Menu component */}
         <Menu
           visibility={isMenuVisible}
@@ -79,8 +81,6 @@ function App() {
           <h2>Open Menu</h2>
         </button>
 
-
-
         <div>
           {products.length > 0 && (
             <div>
@@ -93,7 +93,7 @@ function App() {
                 ))}
               </ul>
               <h3>Total Price: ${calculateTotalPrice().toFixed(2)}</h3>
-              <button onClick={handlePrintReceipt}>Print Receipt</button>
+              <button onClick={handlePrintReceipt}>Confirm order & Receipt</button>
             </div>
           )}
         </div>
